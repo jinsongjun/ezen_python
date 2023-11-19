@@ -1,3 +1,18 @@
+class User:
+    # 클래스 변수 생성
+    # 같은 클래스를 생성하는 경우 공유할 수 있는 변수
+    user_list = []
+    def __init__(self, _name, _birth, _phone):
+        self.name = _name
+        self.birth = _birth
+        self.phone = _phone
+        self.user_list.append(_name)
+    
+    def info(self):
+        # return 'name : '+self.name+'birth : '+self.birth+'phone : '+self.phone
+        return f'name : {self.name} birth : {self.birth} phone : {self.phone}'
+
+
 class Wallet(User):
     # 클래스 변수 생성 (일의 타입, 물품명 딕셔너리)
     work_type = {
