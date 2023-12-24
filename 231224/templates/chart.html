@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 그래프가 그려지는 공간 -->
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!-- 표가 그려지는 공간 -->
+    <table border="1">
+        <!-- 첫번째 행을 추가 -->
+        <tr>
+            <!-- 열을 추가 -->
+            <!-- <th>{{cols[0]}}</th>
+            <th>{{cols[1]}}</th>
+            <th>{{cols[2]}}</th>
+            <th>{{cols[3]}}</th>
+            <th>{{cols[4]}}</th>
+            <th>{{cols[5]}}</th>
+            <th>{{cols[6]}}</th> -->
+            <!-- for문을 이용하여 컬럼을 생성 -->
+            {%for col in cols%}
+                <th>{{col}}</th>
+            <!-- for문이 종료 -->
+            {%endfor%}
+        </tr>
+        <!-- 행의 개수는 데이터의 개수(30)만큼 추가 -->
+        <!-- data -> [{col:value, col2:value2, ..}, ...]
+            data[0] -> {col:value, col2:value2, ..}
+            data[0][col] -> value
+        -->
+        {%for i in range(cnt)%}
+        <tr>
+            <!-- <td>{{data[i][cols[0]]}}</td>
+            <td>{{data[i][cols[1]]}}</td>
+            <td>{{data[i][cols[2]]}}</td>
+            <td>{{data[i][cols[3]]}}</td>
+            <td>{{data[i][cols[4]]}}</td>
+            <td>{{data[i][cols[5]]}}</td>
+            <td>{{data[i][cols[6]]}}</td> -->
+            {%for col in cols%}
+                <td>{{data[i][col]}}</td>
+            {%endfor%}
+        </tr>
+        {%endfor%}
+    </table>
+      
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script>
+    const ctx = document.getElementById('myChart');
+    
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: {{chart_x}},
+        datasets: [{
+            label: '# of Votes',
+            data: {{chart_y}},
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
+        }
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 제목 태그 -->
+    <h1>Login Page</h1>
+    <!-- 유저가 입력할 수 있는 공간 -->
+    <!-- action : 데이터를 어디로 보낼것인가?
+         method : 데이터를 어떠한 방식으로 보낼것인가?
+    -->
+    <h3>get 방식으로 데이터를 보내기</h3>
+    <form action="/signin" method="get">
+        <label>ID</label>
+        <!-- 입력 공간에는 key값으로 사용이 될 속성을 지정 -->
+        <input type="text" name="_id">
+        <br>
+        <label>PASSWORD</label>
+        <input type="password" name="_pass">
+        <br>
+        <input type="submit">
+    </form>
+
+    <h3>post 방식으로 데이터를 보내기</h3>
+    <form action="/signin2" method="post">
+        <label>ID</label>
+        <!-- 입력 공간에는 key값으로 사용이 될 속성을 지정 -->
+        <input type="text" name="input_a">
+        <br>
+        <label>PASSWORD</label>
+        <input type="password" name="input_b">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
