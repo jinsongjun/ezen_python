@@ -1,6 +1,7 @@
 import pandas as pd
 from datetime import datetime
 import numpy as np
+import matplotlib.pyplot as plt
 
 # 첫번째 함수 생성 
 def create_band(
