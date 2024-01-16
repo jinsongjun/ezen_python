@@ -1,0 +1,5 @@
+pandas==1.2.4
+finance-datareader==0.9.20
+matplotlib==3.4.3
+seaborn==0.11.2
+
